@@ -1,4 +1,4 @@
-package HaeInSung.LearningCurve.dailyCT;
+package HaeInSung.LearningCurve.dailyCT.August2024;
 
 // link: https://leetcode.com/problems/number-of-senior-citizens/description/?envType=daily-question&envId=2024-08-01
 
@@ -26,7 +26,7 @@ Return the number of passengers who are strictly more than 60 years old.
 import java.util.ArrayList;
 import java.util.List;
 
-public class NumberOfSeniorCitizens {
+public class DQ_2678 {
 
     public static int countSeniors(String[] details) {
         int count = 0;
