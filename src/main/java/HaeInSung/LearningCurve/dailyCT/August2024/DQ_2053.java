@@ -32,19 +32,15 @@ public class DQ_2053 {
             }
         }
 
-        System.out.println("infoMap: " + infoMap);
-
         int cnt = 0; // str이 arr에서 몇 번째인지 인식용 변수
         for (String str : arr) {
             if (infoMap.containsKey(str)) {
                 cnt++;
                 if (k == cnt) {
-                    cnt = 0; // 초기화
                     return str;
                 }
             }
         }
-        cnt = 0; // 초기화
 
         return "";
     }
