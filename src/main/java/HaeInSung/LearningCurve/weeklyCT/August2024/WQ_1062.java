@@ -1,4 +1,4 @@
-package HaeInSung.LearningCurve.weeklyCT;
+package HaeInSung.LearningCurve.weeklyCT.August2024;
 
 import java.util.ArrayList;
 import java.util.HashSet;
