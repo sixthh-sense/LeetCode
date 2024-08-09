@@ -81,9 +81,72 @@ public class DQ_0840 {
 //                System.out.println("요소: " + grid[y][x]);
             }
         }
-
         return result;
     }
+
+    /* 내가 구상한 게 아니라 LeetCode에서 추천해준 0ms짜리 풀이 */
+    public int numMagicSquaresInside2(int[][] grid) {
+        int result = 0;
+        int yLen = grid.length;
+        int xLen = grid[0].length;
+        if (yLen < 3 || xLen < 3) {
+            return result; // 변수 대신 그냥 0이라고 쓰는 게 더 직관적일까
+        }
+        for (int row = 0; row < yLen - 2; row++) {
+            for (int col = 0; col < xLen - 2; col++) {
+                if (isMagicSquare(grid, row, col)) {
+                    result++;
+                }
+            }
+        }
+        return result;
+    }
+
+    private boolean isMagicSquare(int[][] grid, int row, int col) {
+        boolean[] seen = new boolean[10];
+        // 3 * 3
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                int num = grid[row + i][col + j];
+                if (num < 1 || num > 9) {
+                    return false;
+                }
+                if (seen[num]) {
+                    return false;
+                }
+                // 이렇게 distinct 검사를 하는구나. 배우자!
+                seen[num] = true;
+            }
+        }
+        //여기서 대각선 합 검사
+        int diagonal1 = grid[row][col] + grid[row + 1][col + 1] + grid[row + 2][col + 2];
+        int diagonal2 = grid[row + 2][col] + grid[row + 1][col + 1] + grid[row][col + 2];
+
+        if (diagonal1 != diagonal2) {
+            return false;
+        }
+
+        // 행들의 합이 대각선 합이랑 같은지 검사
+        int row1 = grid[row][col] + grid[row][col + 1] + grid[row][col + 2];
+        int row2 = grid[row + 1][col] + grid[row + 1][col + 1] + grid[row + 1][col + 2];
+        int row3 = grid[row + 2][col] + grid[row + 2][col + 1] + grid[row + 2][col + 2];
+
+        if (!(row1 == diagonal1 && row2 == diagonal1 && row3 == diagonal1)) {
+            return false;
+        }
+
+        // 열들의 합이 대각선 합이랑 같은지 검사
+        int col1 = grid[row][col] + grid[row + 1][col] + grid[row + 2][col];
+        int col2 = grid[row][col + 1] + grid[row + 1][col + 1] + grid[row + 2][col + 1];
+        int col3 = grid[row][col + 2] + grid[row + 1][col + 2] + grid[row + 2][col + 2];
+
+        if (!(col1 == diagonal1 && col2 == diagonal1 && col3 == diagonal2)) {
+            return false;
+        }
+        // false의 함정을 모두 돌파하면 true에 도달한다
+        return true;
+    }
+
     public static void main(String[] args) {
         DQ_0840 dailyQ = new DQ_0840();
 
@@ -96,7 +159,8 @@ public class DQ_0840 {
         gridList.add(new int[][]{{3,10,2,3,4}, {4,5,6,8,1}, {8,8,1,6,8},{1,3,5,7,1},{9,4,9,2,9}});
 
         for (int[][] grid : gridList) {
-            System.out.println(dailyQ.numMagicSquaresInside(grid));
+//            System.out.println(dailyQ.numMagicSquaresInside(grid));
+            System.out.println(dailyQ.numMagicSquaresInside2(grid)); // prettier version
         }
     }
 }
