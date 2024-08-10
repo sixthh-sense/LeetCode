@@ -32,7 +32,7 @@ public class ReverseString {
         arr[start] = temp;
         */
 
-        // 위에서 한탕 끝냈으니 다음 걸로 넘어가기
+        // 위에서 한탕 끝냈으니 다음 걸로 넘어가기!
         reverseHelper(start + 1, end - 1, arr);
     }
 
