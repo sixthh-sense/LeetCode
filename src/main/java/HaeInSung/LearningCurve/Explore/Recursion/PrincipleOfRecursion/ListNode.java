@@ -18,7 +18,9 @@ public class ListNode {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(val);
-        sb.append(",");
+        if (next != null) {
+            sb.append(",");
+        }
         while (next != null) {
             sb.append(next.val);
             if (next.next != null) {
