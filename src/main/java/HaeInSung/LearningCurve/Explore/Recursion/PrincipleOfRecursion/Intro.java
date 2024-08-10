@@ -1,6 +1,6 @@
 package HaeInSung.LearningCurve.Explore.Recursion.PrincipleOfRecursion;
 
-public class PrincipleOfRecursion {
+public class Intro {
     /* Recursion은 한국말로 재귀라고 부릅니당
     * 그리고 재귀를 이용해서 문제를 풀 때는
     * 1. 무한 재귀에 빠지지 않게끔 terminating scenario를 고려해야 하고
