@@ -16,17 +16,16 @@ public class ListNode {
     // LeetCode에 정의되지 않은 toString() 메소드지만 내 이해를 위해 집어넣음
     @Override
     public String toString() {
+        // 출력을 위한 임시 객체
+        ListNode temp = next;
         StringBuilder sb = new StringBuilder();
         sb.append(val);
-        if (next != null) {
+        sb.append(",");
+        while (temp != null) {
+            sb.append(temp.val);
             sb.append(",");
-        }
-        while (next != null) {
-            sb.append(next.val);
-            if (next.next != null) {
-                sb.append(",");
-            }
-            next = next.next;
+
+            temp = temp.next;
         }
         return sb.toString();
     }
