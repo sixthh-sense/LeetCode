@@ -8,6 +8,7 @@ import java.util.List;
 
 public class SearchInABinarySearchTree {
     public TreeNode searchBST(TreeNode root, int val) {
+        System.out.println("current root: " + root);
         if (root == null || root.val == val) {
             return root;
         }
