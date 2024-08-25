@@ -23,6 +23,7 @@ public class DQ_0145 {
         }
         System.out.println("current val: " + currentNode.val); // 탐색 자체는 root와 가까운 순부터 되지만
 
+        // left -> right 순서도 중요함. binary tree라는 걸 잊지 말 것
         traverseTreeNode(currentNode.left, result); // left node 탐색
         traverseTreeNode(currentNode.right, result); // right node 탐색
 
@@ -36,6 +37,7 @@ public class DQ_0145 {
         testcases.add(new TreeNode(1, null, new TreeNode(2, new TreeNode(3), null)));  // 3, 2, 1 나와야 함
         testcases.add(new TreeNode());
         testcases.add(new TreeNode(1));
+        testcases.add(new TreeNode(3, new TreeNode(1), new TreeNode(2)));
 
         for (TreeNode testcase : testcases) {
             System.out.println(dq.postorderTraversal(testcase));
