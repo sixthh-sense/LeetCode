@@ -46,7 +46,6 @@ public class DQ_1894 {
         * 6. 2학변 5개 소모 -> k = 0 // 이때 개수가 딱 0으로 되는 경우 분필 교체 담당 X
         * 7. 0학번 분필 교체 담당
         * */
-
         for (int[] testcase : testcases) {
             int index = testcases.indexOf(testcase);
             System.out.println(dq.chalkReplacer(testcase, kList.get(index)));
